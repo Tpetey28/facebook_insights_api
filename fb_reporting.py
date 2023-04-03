@@ -113,14 +113,11 @@ get_conversions(df_all)
 # dropping a few more unneeded columns after 'get_conversions' runs
 df_all.drop(['date_start', 'actions'], inplace = True, axis = 1)
 
-# putting final clean file to excel repo
-df_all.to_excel('2023.xlsx',index=False)
-
 # loading in previous full report
-df_hist = pd.read_excel('fb_ad_performance.xlsx')
+df_hist = pd.read_excel('#insert file path here')
 
 df_all = pd.concat([df_hist, df_all])
 df_all.drop_duplicates(inplace = True, keep = 'last')
 
 # putting final clean file to excel repo
-df_all.to_excel('fb_ad_performance.xlsx', index=False)
+df_all.to_excel('#insert destination file path here', index=False)
